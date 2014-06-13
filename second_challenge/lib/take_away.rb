@@ -18,11 +18,12 @@ class Order
 
 	def initialize(food, number = 1)
 			@food, @quantity = food, number
-			@list_of_orders = []
+			@list_of_orders ||= []
+
 	end
 
 	def add_food_to_list_of_orders(new_order)
-		if blob?(food)
+		if is_the_ordered_food_on_the_menu?(food)
 			quantity.times { list_of_orders << new_order } 
 			#send_message
 		else
@@ -30,7 +31,7 @@ class Order
 		end
 	end
 
-	def blob?(food)
+	def is_the_ordered_food_on_the_menu?(food)
 		Menu.new.list.keys.include?(food)
 	end
 

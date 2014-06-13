@@ -23,13 +23,13 @@ describe 'Takeaway' do
 	it 'checks the food exist in the menu' do
 		order = Order.new(:food5)
 		menu = Menu.new
-		expect(order.blob?(order.food)).to be_false
+		expect(order.is_the_ordered_food_on_the_menu?(order.food)).to be false
 	end
 
 	it 'checks the food exist in the menu' do
 		order = Order.new(:food4)
 		menu = Menu.new
-		expect(order.blob?(order.food)).to be_true
+		expect(order.is_the_ordered_food_on_the_menu?(order.food)).to be true
 	end
 
 
@@ -48,9 +48,6 @@ describe 'Takeaway' do
 	it 'checks total number of foods ordered to total' do
 		order = Order.new(:food, 4)
 		order.add_food_to_list_of_orders(order)
-		expect(order.number_ordered_equal_to_total).to be_true
+		expect(order.number_ordered_equal_to_total).to be true
 	end
-
-	it 'knows to send sms'
-
 end
