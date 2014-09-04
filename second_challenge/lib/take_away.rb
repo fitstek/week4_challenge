@@ -25,7 +25,7 @@ class Order
 	def add_food_to_list_of_orders(new_order)
 		if is_the_ordered_food_on_the_menu?(food)
 			quantity.times { list_of_orders << new_order } 
-			#send_message
+			send_message
 		else
 			puts "Please choose food that is on the menu."
 		end
